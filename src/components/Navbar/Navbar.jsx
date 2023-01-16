@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import Button from "../Button/Button";
 import "./Navbar.css";
@@ -8,6 +8,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const navRef = useRef();
   const headerRef = useRef();
+  const navigate = useNavigate();
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
@@ -41,6 +42,7 @@ const Navbar = () => {
           buttonStyle={"btn--outline"}
           // buttonColor={"btn--orange"}
           rounded={true}
+          onClick={() => navigate("/login")}
         >
           Login
         </Button>

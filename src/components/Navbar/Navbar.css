@@ -64,9 +64,11 @@ header a:hover::before {
   margin-left: 10px;
 }
 header .nav-btn {
+  padding: 0.5rem;
+  border-radius: 10px;
   cursor: pointer;
-  padding: 5px;
-  background: transparent;
+  background: var(--success);
+
   border: none;
   outline: none;
   color: white;
@@ -86,7 +88,7 @@ header h3 {
     top: 0;
     left: 0;
     height: 100%;
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,5 +100,10 @@ header h3 {
   }
   header .responsive_nav {
     transform: none;
+  }
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
   }
 }
