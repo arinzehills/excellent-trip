@@ -3,6 +3,8 @@
   grid-template-columns: 300px repeat(3, auto);
   row-gap: 4rem;
   margin-top: 3rem;
+  padding: 4rem 3rem 4rem;
+
   /* width: 92vw; */
 }
 .destination_container {
@@ -30,4 +32,28 @@
   padding: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+@media screen and (max-width: 1200px) {
+  .destination_list {
+    grid-template-columns: repeat(3, auto);
+    gap: 2rem;
+    margin: 10px;
+    margin-left: 0;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .destination_list {
+    grid-template-columns: repeat(2, auto);
+    gap: 4rem;
+    column-gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  .destination_container {
+    height: 200px;
+    width: 200px;
+  }
 }
