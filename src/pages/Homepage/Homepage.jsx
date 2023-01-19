@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import GradientHeaders from "../../components/GradientHeaders/GradientHeaders";
 import Hero from "../../components/Hero/Hero";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import "./Homepage.css";
+import Reviews from "./Reviews";
 
 const Homepage = () => {
+  const navigate = useNavigate();
   window.addEventListener("scroll", function () {
     var header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0);
@@ -28,11 +31,14 @@ const Homepage = () => {
     },
   ];
 
-  const DestinationItem = () => {
+  const DestinationItem = ({ name }) => {
     return (
-      <div className="destination_container">
+      <div
+        className="destination_container"
+        onClick={() => navigate(`/destinations/${name}`)}
+      >
         <img src="/images/mumbai.jpeg" alt="" />
-        <div className="destination_content">Mumbai</div>
+        <div className="destination_content">{name ?? "Mumbai"}</div>
       </div>
     );
   };
@@ -62,7 +68,16 @@ const Homepage = () => {
     imgStart: "start",
     buttonColor: "btn--orange",
   };
-  const arr = ["", "", "", "", "", "", ""];
+  const arr = [
+    "Mumbai",
+    "Delhi",
+    "Surat",
+    "Chennai",
+    "Pune",
+    "Surat",
+    "Jiapur",
+    "Kolkata",
+  ];
   return (
     <div>
       <ImageSlider slides={slides} />
@@ -74,10 +89,12 @@ const Homepage = () => {
         />
         <div className="destination_list">
           {arr.map((dest, index) => (
-            <DestinationItem key={index} />
+            <DestinationItem key={index} name={dest} />
           ))}
         </div>
+        <Reviews />
         <Hero {...homeData2} withBg={true} />
+
         <div id="about">
           <Hero
             {...homeData3}

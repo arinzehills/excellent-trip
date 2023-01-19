@@ -6,6 +6,7 @@ import HomepageWrapper from "./pages/HomepageWrapper/HomepageWrapper";
 import Homepage from "./pages/Homepage/Homepage";
 import Register from "./pages/Auth/Register";
 import Auth from "./pages/Auth/Auth";
+import Destination from "./pages/Destination/Destination";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +16,9 @@ function App() {
       <Switch>
         <Route path="/" exact element={<HomepageWrapper />}>
           <Route index element={<Homepage />} />
+          <Route path="/destinations">
+            <Route path=":destination" exact element={<Destination />} />
+          </Route>
         </Route>
         <Route
           path="/login"

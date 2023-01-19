@@ -7,3 +7,28 @@ body {
   padding: 0;
   background: white;
 }
+.centerClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.class_justify_contents_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.class_justify_contents_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avenir_class {
+  font-family: "Avenir", Helvetica, sans-serif;
+  line-height: 0;
+}
+@media screen and (max-width: 768px) {
+  .avenir_class {
+    line-height: inherit;
+  }
+}

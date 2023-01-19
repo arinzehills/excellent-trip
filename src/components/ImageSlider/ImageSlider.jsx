@@ -1,11 +1,14 @@
 // import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
+import Button from "../Button/Button";
+import { Link as ScrollLink } from "react-scroll";
+
 import "./ImageSlider.css";
 
 const ImageSlider = ({ slides, isNotMap, style, imageStyle, iconSize }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
-  const delay = 2500;
+  const delay = 9500;
   const nextSlide = () => {
     // if current is == the last value in d array set it back to zero(firstelement) else increase it
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -44,6 +47,30 @@ const ImageSlider = ({ slides, isNotMap, style, imageStyle, iconSize }) => {
         className="slider-arrow-right "
         onClick={nextSlide}
       /> */}
+      <div className="slider-contents class_justify_contents_column">
+        <h3>Explore the world</h3>
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+          et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique sunt in culpa qui officia deserunt mollitia animi, id est
+          laborum et dolorum fuga
+        </p>
+        <div>
+          <ScrollLink
+            to={"about"}
+            smooth={true}
+            spy={true}
+            offset={160}
+            duration={1500}
+          >
+            <Button buttonColor={"btn--green"} buttonStyle="btn--outline">
+              Learn more
+            </Button>{" "}
+          </ScrollLink>
+          <Button buttonColor={"btn--green"}>Book now</Button>
+        </div>
+      </div>
       {slides.map((slide, index) => (
         <div
           className={index === current ? "myslide myslide-active" : "myslide"}

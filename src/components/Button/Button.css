@@ -17,6 +17,10 @@
   background: var(--orange-gradient);
   color: white;
 }
+.btn--orange.btn--outline {
+  border: 1px solid rgb(247, 111, 93);
+  color: rgb(247, 111, 93);
+}
 .btn--outline {
   border: 1px solid var(--success);
   background: white;

@@ -35,6 +35,21 @@
   cursor: pointer;
   user-select: none;
 }
+.slider-contents {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+
+  /* left: 32px; */
+  font-size: 3rem;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+.slider-contents p {
+  font-size: 1rem;
+}
 .myslide {
   opacity: 0.5;
   transition: 1s ease;
