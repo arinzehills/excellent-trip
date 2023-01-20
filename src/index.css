@@ -7,6 +7,10 @@ body {
   padding: 0;
   background: white;
 }
+
+.errors {
+  color: red;
+}
 .centerClass {
   display: flex;
   justify-content: center;

@@ -41,7 +41,7 @@ function MyProgress({ progress, progressClass, stopColor1, stopColor2 }) {
         >
           <defs>
             <linearGradient id="GradientColor">
-              <stop offset="0%" stopColor={stopColor1 ?? "#e91e63"} />
+              <stop offset="0%" stopColor={stopColor1 ?? "var(--success)"} />
               <stop
                 offset="100%"
                 stopColor={stopColor2 ?? "var(--light-purple)"}

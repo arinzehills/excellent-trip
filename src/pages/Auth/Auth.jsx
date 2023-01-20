@@ -4,33 +4,11 @@ import MyProgress from "../../components/MyProgress/MyProgress";
 import { Helmet } from "react-helmet";
 import Login from "./Login";
 import Register from "./Register";
+import "./Auth.css";
+
 function Auth() {
   const location = useLocation();
-
-  const initialValues = {
-    firstname: "",
-    secondname: "",
-    email: "",
-    password: "",
-  };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [responseError, setResponseError] = useState("");
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const history = useNavigate();
-  const errors = {};
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value.trimLeft().trimRight() });
-
-    console.log(formValues);
-    // console.log(e.target)
-  };
-
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
 
   const Form = () => {
     const initialValues = {
@@ -54,8 +32,8 @@ function Auth() {
   return (
     <>
       <Helmet>
-        <title>Conterize - Registration</title>
-        <meta name="description" content="Conterize Registration Page" />
+        <title>Excellent Trip - Authentication</title>
+        <meta name="description" content="Excellent Trip Page" />
       </Helmet>
       {/* {loading ? (
         <Loader />
@@ -97,27 +75,36 @@ function Auth() {
         >
           <MyProgress
             // progress={activeStep === 1 ? 33 : activeStep === 2 ? 66 : 100}
-            progress={66}
-            progressClass={showLogin ? "anim33" : "anim100"}
+            progress={!showLogin ? 66 : 100}
+            progressClass={!showLogin ? "anim33" : "anim100"}
           />
         </div>
         <div
           className="reg-sec-section"
           style={{
-            // background: "var(--grey)",
+            background: "var(--grey)",
             textAlign: "left",
-            padding: "1.5rem",
             height: "95vh",
           }}
         >
-          {/* <Stepper hrColor={"hrColor"} activeStep={activeStep} />
-          <h1 style={{ color: "var(--mypurple)" }}>{steps[activeStep - 1]}</h1>
-
-          {activeStep === 3 ? (
-            <Thankyou message={"You have successfully subscribe! thank you!"} />
-          ) : (
-            <Form />
-          )} */}
+          <div
+            className="auth-heading class_justify_contents_row"
+            style={{ justifyContent: "space-between" }}
+          >
+            <div
+              className={`centerClass ${showLogin && "auth-active"}`}
+              onClick={() => setShowLogin(true)}
+            >
+              Login
+            </div>
+            <div
+              className={`centerClass ${!showLogin && "auth-active"}`}
+              onClick={() => setShowLogin(false)}
+            >
+              Registration
+            </div>
+          </div>
+          {showLogin ? <Login /> : <Register />}
         </div>
       </div>
       {/* )} */}

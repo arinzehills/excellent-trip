@@ -5,16 +5,21 @@ import { homeData2 } from "../Homepage/Homepage";
 const PackageDetails = () => {
   return (
     <div>
-      <Hero {...homeData2} imgStart="start" />
+      <Hero
+        {...homeData2}
+        imgStart="start"
+        description={"fdjkdsakjdsak"}
+        buttonLink="/book"
+      />
       <div
         style={{
           justifyContent: "space-between",
           display: "flex",
-          padding: "auto 5rem",
+          padding: "0px 5rem",
         }}
       >
         <div>
-          <h4>Activities Included:</h4>
+          <h2>Activities Included:</h2>
           <div>
             <span>Day1:Eat food</span>
             <br />
@@ -27,7 +32,7 @@ const PackageDetails = () => {
           </div>
         </div>
         <div>
-          <h3>From our gallery</h3>
+          <h2>From our gallery</h2>
         </div>
       </div>
     </div>

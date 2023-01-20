@@ -8,6 +8,7 @@ import Register from "./pages/Auth/Register";
 import Auth from "./pages/Auth/Auth";
 import Destination from "./pages/Destination/Destination";
 import PackageDetails from "./pages/Destination/PackageDetails";
+import Book from "./pages/Book/Book";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
             <Route path=":destination" exact element={<Destination />} />
             <Route path="package-details" exact element={<PackageDetails />} />
           </Route>
+          <Route path="book" exact element={<Book />} />
         </Route>
         <Route
           path="/login"

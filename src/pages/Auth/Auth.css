@@ -1,0 +1,15 @@
+.auth-heading {
+  height: 4rem;
+  gap: 1rem;
+  transition: all ease-in 4s;
+  cursor: pointer;
+  width: 100%;
+  background: white;
+  margin-bottom: 3rem;
+}
+.auth-active {
+  background: var(--success);
+  height: 4rem;
+  width: 60%;
+  cursor: default;
+}
