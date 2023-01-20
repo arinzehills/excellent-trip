@@ -14,6 +14,11 @@ const Book = () => {
     setTravellers([...travellers, formValues]);
     // setFormValues([{ ...initialValues }]);
   };
+  const handleRemoveTraveller = (index) => {
+    const list = [...travellers];
+    list.splice(index, 1); //starting from index zero remove one service
+    setTravellers(list); //set links to new list
+  };
   console.log(travellers);
   const ListTravelers = () => {
     return (
@@ -42,6 +47,7 @@ const Book = () => {
                 background: "white",
                 borderRadius: "5px",
               }}
+              onClick={() => handleRemoveTraveller(index)}
             >
               <AiFillDelete color="red" />
             </div>
