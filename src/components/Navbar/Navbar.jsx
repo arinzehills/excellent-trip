@@ -21,7 +21,7 @@ const Navbar = () => {
     <header ref={headerRef}>
       <h3>EXCELLENT TRIP</h3>
       <nav ref={navRef}>
-        <Link>Home</Link>
+        <Link to={"/"}>Home</Link>
         <ScrollLink
           to={"about"}
           smooth={true}

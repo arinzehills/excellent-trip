@@ -2,7 +2,9 @@
   --success: #41f1b6;
   --black: rgb(60, 60, 60);
   --dark-blue: #181574;
-
+  --light: rgba(132, 139, 200, 0.18);
+  --box-shadow: 0 2rem 3rem var(--light);
+  --radius-25: 25px;
   --orange-gradient: linear-gradient(
     to top,
     rgb(247, 111, 93),

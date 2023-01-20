@@ -6,12 +6,34 @@ import ImageSlider from "../../components/ImageSlider/ImageSlider";
 import "./Homepage.css";
 import Reviews from "./Reviews";
 
+export const homeData2 = {
+  headline: "Need a cab for  Local or Outstation?",
+  description: "",
+  descriptionFont: "f16px",
+  img: "/images/mumbai.jpg",
+  imgalt1: "Your Startup Content Partner",
+  showButton: true,
+  withBg: false,
+  buttonLabel: "Book now",
+  buttonColor: "btn--orange",
+};
 const Homepage = () => {
   const navigate = useNavigate();
   window.addEventListener("scroll", function () {
     var header = document.querySelector("header");
     header.classList.toggle("sticky", window.scrollY > 0);
   });
+  const DestinationItem = ({ name }) => {
+    return (
+      <div
+        className="destination_container"
+        onClick={() => navigate(`/destinations/${name}`)}
+      >
+        <img src="/images/mumbai.jpeg" alt="" />
+        <div className="destination_content">{name ?? "Mumbai"}</div>
+      </div>
+    );
+  };
   const slides = [
     {
       title: "Radiant Clothing ",
@@ -31,28 +53,6 @@ const Homepage = () => {
     },
   ];
 
-  const DestinationItem = ({ name }) => {
-    return (
-      <div
-        className="destination_container"
-        onClick={() => navigate(`/destinations/${name}`)}
-      >
-        <img src="/images/mumbai.jpeg" alt="" />
-        <div className="destination_content">{name ?? "Mumbai"}</div>
-      </div>
-    );
-  };
-  const homeData2 = {
-    headline: "Need a cab for  Local or Outstation?",
-    description: "",
-    descriptionFont: "f16px",
-    img: "/images/mumbai.jpg",
-    imgalt1: "Your Startup Content Partner",
-    showButton: true,
-    withBg: false,
-    buttonLabel: "Book now",
-    buttonColor: "btn--orange",
-  };
   const homeData3 = {
     headline: "Who are we?",
     description:
