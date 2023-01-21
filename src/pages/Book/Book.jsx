@@ -13,6 +13,7 @@ const Book = () => {
     console.log({ ...formValues });
     setTravellers([...travellers, formValues]);
     // setFormValues([{ ...initialValues }]);
+    formValues.age.clear();
   };
   const handleRemoveTraveller = (index) => {
     const list = [...travellers];
@@ -23,10 +24,12 @@ const Book = () => {
   const ListTravelers = () => {
     return (
       <div
-        className="destination_list"
         style={{
-          width: "50%",
-          overflow: "visible",
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-start",
+          flexWrap: "wrap",
+          gap: "0rem",
         }}
       >
         {travellers.map((traveller, index) => (
@@ -46,6 +49,8 @@ const Book = () => {
               style={{
                 background: "white",
                 borderRadius: "5px",
+                position: "relative",
+                top: 0,
               }}
               onClick={() => handleRemoveTraveller(index)}
             >
@@ -64,7 +69,7 @@ const Book = () => {
     >
       <div
         style={{
-          width: "70%",
+          width: "80%",
           height: "80vh",
           boxShadow: "var(--box-shadow)",
           background: "white",
@@ -72,8 +77,8 @@ const Book = () => {
         }}
       >
         {/* formfield container */}
-        <div>
-          <div className="register_row">
+        <div className="register_row" style={{ padding: "1rem" }}>
+          <div>
             <h3 style={{ textTransform: "capitalize" }}>Name</h3>
             <div style={{ flexDirection: "column" }}>
               <InputField
@@ -89,7 +94,7 @@ const Book = () => {
               {/* <p className="errors">{formErrors.name}</p> */}
             </div>
           </div>
-          <div className="register_row">
+          <div>
             <h3 style={{ textTransform: "capitalize" }}>Age</h3>
             <div style={{ flexDirection: "column" }}>
               <InputField
@@ -104,37 +109,50 @@ const Book = () => {
               />
               <p className="errors">{error}</p>
             </div>
-            <div className="centerClass">
-              <Button
-                buttonColor={"btn--orange"}
-                onClick={() => {
-                  !formValues.name || !formValues.password
-                    ? setError("Fields are required")
-                    : setError("");
-                  formValues.name || formValues.password
-                    ? addTravellers()
-                    : null;
-                }}
-              >
-                Add
-              </Button>
-              <Button
-                buttonColor={"btn--orange"}
-                // onClick={onSubmit}
-              >
-                {"Proceed->"}
-              </Button>
-            </div>
-            {travellers.length > 0 && <ListTravelers />}
+          </div>
+          {/* end of form container */}
+          <div className="centerClass">
+            <Button
+              buttonColor={"btn--orange"}
+              onClick={() => {
+                !formValues.name || !formValues.password
+                  ? setError("Fields are required")
+                  : setError("");
+                formValues.name || formValues.password ? addTravellers() : null;
+              }}
+            >
+              Add
+            </Button>
+            <Button
+              buttonColor={"btn--orange"}
+              // onClick={onSubmit}
+            >
+              {"Proceed->"}
+            </Button>
           </div>
 
-          {/* end of form container */}
+          {travellers.length > 0 && <ListTravelers />}
         </div>
+
         <div
-          style={{ background: "var(--success)", width: "50%" }}
+          style={{
+            background: "var(--success)",
+            width: "50%",
+            flexDirection: "column",
+          }}
           className="centerClass"
         >
-          dss
+          <h3>Add Traveller</h3>
+          <p>
+            Add travellers for this. The price will be multiplied per person
+          </p>
+          <h3
+            style={{
+              color: "white",
+            }}
+          >
+            Total:Rs 4343
+          </h3>
         </div>
       </div>
     </div>
